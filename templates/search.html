@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+{% block content %}
+<h2 class="mb-4 text-info">🔍 Search Jira Issues</h2>
+<form method="post" class="mb-3">
+  <div class="input-group">
+    <input type="text" class="form-control" name="query" placeholder="Enter search keyword..." required>
+    <button type="submit" class="btn btn-primary">Search</button>
+  </div>
+</form>
+
+{% if results %}
+  <h5 class="mt-4">Results:</h5>
+  <ul class="list-group">
+    {% for issue in results %}
+      <li class="list-group-item">
+        <strong>{{ issue.key }}</strong>: {{ issue.fields.summary }}
+      </li>
+    {% endfor %}
+  </ul>
+{% endif %}
+{% endblock %}

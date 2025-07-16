@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<h2 class="text-primary mb-4">📊 Jira Storytelling Report</h2>
+
+<div class="alert alert-info">
+  <strong>Summary:</strong> {{ report[0] }}
+</div>
+
+<h4 class="mt-5 mb-3">📈 Charts</h4>
+<div class="row">
+  {% for chart in report[1] %}
+  <div class="col-md-6 mb-4">
+    <div class="card shadow-sm p-3">
+      <img src="{{ url_for('static', filename=chart.split('static/')[-1]) }}" class="img-fluid" alt="Chart">
+    </div>
+  </div>
+  {% endfor %}
+</div>
+
+<a href="{{ url_for('create_issue') }}" class="btn btn-success mt-4">➕ Create Another Issue</a>
+<a href="{{ url_for('search') }}" class="btn btn-secondary mt-4">🔍 Search Issues</a>
+
+{% endblock %}
