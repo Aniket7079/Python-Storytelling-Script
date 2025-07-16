@@ -1,0 +1,5 @@
+
+Flask==2.3.3
+jira==3.6.0
+python-dotenv==1.0.1
+matplotlib
