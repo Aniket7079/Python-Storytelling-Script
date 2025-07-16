@@ -1,0 +1,12 @@
+{% extends 'layout.html' %}
+{% block content %}
+<h2 class="mb-3">Jira Report</h2>
+<p>{{ report }}</p>
+<div class="row">
+  {% for chart in charts %}
+  <div class="col-md-6">
+    <img src="{{ url_for('static', filename=chart.split('/')[-1]) }}" class="img-fluid rounded shadow-sm" alt="Chart">
+  </div>
+  {% endfor %}
+</div>
+{% endblock %}
